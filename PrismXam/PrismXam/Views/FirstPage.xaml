@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="PrismXam.Views.FirstPage">
+             x:Class="PrismXam.Views.FirstPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
         <FlexLayout
             AlignContent="SpaceEvenly">

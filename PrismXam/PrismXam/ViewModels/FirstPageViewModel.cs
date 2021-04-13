@@ -24,12 +24,24 @@ namespace PrismXam.ViewModels
 
         void ExecuteBackCommand()
         {
-            _navigationService.NavigateAsync("MainPage");
+            _navigationService.NavigateAsync("/NavigationPage/MainPage");
         }
 
         bool CanExecuteBackCommand()
         {
             return true;
+        }
+
+        public override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            //base.OnNavigatedFrom(parameters);
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+
+            Title = parameters.GetValue<string>("FirstName");
+            //base.OnNavigatedTo(parameters);
         }
     }
 }
