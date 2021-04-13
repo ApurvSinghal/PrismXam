@@ -1,23 +1,27 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PrismXam.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+    public class MainPageViewModel : ViewModelBase, IConfirmNavigationAsync
     {
-        private INavigationService _navigationService;
+        private readonly INavigationService _navigationService;
+        private readonly IPageDialogService _pageDialogService;
 
-        public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
             : base(navigationService)
         {
             Title = "Main Page";
 
             _navigationService = navigationService;
+            _pageDialogService = pageDialogService;
         }
 
         private DelegateCommand<string> _fieldName;
@@ -43,6 +47,11 @@ namespace PrismXam.ViewModels
         bool CanExecuteCommandName(string parameter)
         {
             return true;
+        }
+
+        public Task<bool> CanNavigateAsync(INavigationParameters parameters)
+        {
+            return _pageDialogService.DisplayAlertAsync("Alert", "Want to Navigate?", "Yes", "No");
         }
     }
 }
