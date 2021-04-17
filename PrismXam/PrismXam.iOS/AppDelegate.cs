@@ -1,4 +1,7 @@
 ﻿using Foundation;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Prism;
 using Prism.Ioc;
 using UIKit;
@@ -22,6 +25,11 @@ namespace PrismXam.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            //App Center Analytics
+            AppCenter.Start("547a3a22-286a-4c20-8bc8-b13f5a940081",
+                   typeof(Analytics), typeof(Crashes));
+
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
