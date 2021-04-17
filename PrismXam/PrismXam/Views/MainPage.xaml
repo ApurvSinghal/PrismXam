@@ -4,7 +4,8 @@
              x:Class="PrismXam.Views.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                 BackgroundColor="Yellow">
         <Label Text="Welcome to Xamarin Forms and Prism!" />
         <Button
             Text="Click Me!"
