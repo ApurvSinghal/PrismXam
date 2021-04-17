@@ -41,7 +41,7 @@ namespace PrismXam.ViewModels
             //Another way of passing Navigation Parameters
             //_navigationService.NavigateAsync("FirstPage?FirstName=Apurv&SecondName=Singhal");
 
-            _navigationService.NavigateAsync("FirstPage", p);
+            _navigationService.NavigateAsync("SecondPage", p);
         }
 
         bool CanExecuteCommandName(string parameter)
